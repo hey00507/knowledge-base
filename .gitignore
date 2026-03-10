@@ -1,0 +1,7 @@
+# Obsidian
+.obsidian/
+.smart-env/
+.DS_Store
+
+# Sensitive files
+*.base
