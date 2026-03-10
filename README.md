@@ -1,42 +1,48 @@
 # Knowledge Base
 
-Backend 개발자의 성장 기록과 지식 저장소입니다.  
-프로젝트 경험, 기술 학습, 문제 해결 과정을 기록하고 있습니다.
+AI한테 휘둘리지 말고, 직접 운전하자는 생각으로 만든 개인 지식 저장소.
+Obsidian vault를 Claude MCP로 연결해서, 대화하면서 자동으로 정리되는 구조를 만들었다.
 
-## Structure
+## 이게 뭔데
+
+일하면서 생긴 회의록, 공부하면서 정리한 노트, 삽질 로그 같은 것들이 쌓이는 곳.
+노트 앱에 묻혀서 다시 안 보게 되는 걸 방지하려고, 구조를 잡고 서로 연결해뒀다.
 
 ```
-000.Home/       → 진입점 & 전체 구조 안내
-010.Work/       → 프로젝트 회의록, 설계서, DDL 등 실무 기록
-020.Growth/     → 기술 학습, 운동, 독서 등 자기개발
-030.Plans/      → 일정 & 계획 관리
-040.Logs/       → 작업 로그 & 회고
-050.Etc/        → 일기, 사색, 여행
+000.Home/       홈 — 전체 구조 진입점
+010.Work/       실무 — 회의록, 설계서, DDL
+020.Growth/     공부 — 기술 학습, 운동, 독서
+030.Plans/      계획 — 일정, 약속
+040.Logs/       로그 — 작업 기록, 회고
+050.Etc/        기타 — 일기, 사색
 ```
 
-## Tech Stack & Tools
+## 어떻게 돌아가는지
 
-- **Backend**: Java, Spring Boot, PostgreSQL
-- **Infra**: Docker, CI/CD
-- **Knowledge Management**: Obsidian + Claude MCP (AI 연동 자동화)
-- **Calendar Integration**: Apple Reminders, Google Calendar (AppleScript & MCP)
+```
+Claude Code CLI → MCP → Obsidian Local REST API → Vault
+                → MCP → Google Calendar
+                → AppleScript → Apple Reminders / Calendar
+```
 
-## Highlights
+- 대화하면서 작업하면 노트가 자동으로 적재됨
+- 일정 얘기하면 캘린더/리마인더에 등록하고 vault에도 기록
+- 그래프 뷰로 노트 간 연결 관계를 시각적으로 확인
 
-### 프로젝트
-- **의성 마늘 데이터 포털** — 농업 데이터 개방 플랫폼 구축 (Spring Boot, PostgreSQL)
-  - 표준사전 관리 시스템 설계 및 구현
-  - JWT 기반 인증/인가 시스템 구축
-  - 데이터 품질관리 모듈 개발
+## 지금까지 한 것들
 
-### 기술 학습
-- Spring Security + JWT 인증 시스템 심화
-- MCP(Model Context Protocol) 활용 — AI 도구와 로컬 앱 연동
-- Google Cloud OAuth 2.0 연동
+**의성 마늘 데이터 포털** — 농업 데이터 개방 플랫폼 (Spring Boot, PostgreSQL)
+- 데이터 표준사전 관리 시스템 (용어/단어/도메인/코드 CRUD + 엑셀 일괄처리)
+- JWT 인증/인가 (Access/Refresh Token, BCrypt, Role 기반 접근제어)
+- 데이터 품질관리 모듈
 
-## About
+**AI 연동 자동화**
+- Obsidian MCP — vault 읽기/쓰기/검색 연동
+- Google Calendar MCP — OAuth 2.0 인증, 이벤트 CRUD
+- Apple Reminders — AppleScript 기반 조회/생성
+- Claude Code 커스텀 명령어 (`/plan`) — 일정 브리핑 자동화
 
-이 저장소는 [Obsidian](https://obsidian.md/)으로 관리되며,  
-Claude Code와 MCP를 통해 노트 작성·정리가 자동화되어 있습니다.
+## 기술
 
-> *"AI의 운전자가 되어, 나만의 시스템을 구축하자"*
+Java · Spring Boot · Spring Security · PostgreSQL · JWT
+Obsidian · Claude MCP · Google Cloud OAuth 2.0 · AppleScript
